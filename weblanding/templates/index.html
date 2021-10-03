@@ -5,8 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-    <p class="hi">
-        <h1>hello</h1>
-    </p>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Дата</th>
+            <th>Телефон</th>
+        </tr>
+        {% for obj in object_list %}
+        <tr>
+            <th>{{ obj.id }}</th>
+            <th>{{ obj.order_name }}</th>
+            <th>{{ obj.order_dt }}</th>
+            <th>{{ obj.order_phone }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{% url 'thanks_page' %}", method="get">
+        <p>Имя</p>
+        <input type="text" name="name">
+        <p>Телефон</p>
+        <input type="text" name="phone">
+        <button type="submit">Отправить</button>
+    </form>
 </body>
 </html>
